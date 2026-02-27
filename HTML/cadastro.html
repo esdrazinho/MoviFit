@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>MoveFit - Criar Conta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <style>
+        body { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 40px 0; }
+        .form-container { max-width: 600px; width: 100%; margin: auto; }
+        .form-row { display: flex; gap: 15px; } 
+        .form-row .input-group { flex: 1; }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="form-header" style="text-align: center; margin-bottom: 20px;">
+            <h2 style="color: var(--brand-color);">Crie sua Conta</h2>
+            <p style="color: #aaa;">Preencha seus dados para entrega</p>
+        </div>
+
+        <form action="../PHP/processa_cadastro.php" method="POST">
+            
+            <div class="input-group">
+                <label>Nome Completo</label>
+                <input type="text" name="nome" placeholder="Ex: João Silva" required>
+            </div>
+
+            <div class="form-row">
+                <div class="input-group">
+                    <label>Usuário</label>
+                    <input type="text" name="usuario" placeholder="joao.fit" required>
+                </div>
+                <div class="input-group">
+                    <label>E-mail</label>
+                    <input type="email" name="email" placeholder="seu@email.com" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Telefone / WhatsApp</label>
+                <input type="text" name="telefone" placeholder="(00) 90000-0000" maxlength="15" required>
+            </div>
+
+            <div class="form-row">
+                <div class="input-group">
+                    <label>CEP</label>
+                    <input type="text" name="cep" id="cep" placeholder="00000-000" maxlength="9" onblur="buscarCep()" required>
+                </div>
+                <div class="input-group">
+                    <label>Número</label>
+                    <input type="text" name="numero" id="numero" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Rua</label>
+                <input type="text" name="rua" id="rua" readonly style="background: #222;">
+            </div>
+
+            <div class="form-row">
+                <div class="input-group">
+                    <label>Bairro</label>
+                    <input type="text" name="bairro" id="bairro" readonly style="background: #222;">
+                </div>
+                <div class="input-group">
+                    <label>Cidade</label>
+                    <input type="text" name="cidade" id="cidade" readonly style="background: #222;">
+                </div>
+                <div class="input-group" style="flex: 0.3;">
+                    <label>UF</label>
+                    <input type="text" name="estado" id="estado" readonly style="background: #222;">
+                </div>
+            </div>
+            
+
+            <div class="input-group">
+                <label>Senha</label>
+                <input type="password" name="senha" placeholder="Crie uma senha forte" required>
+            </div>
+
+            <button type="submit" class="btn-cta" style="width: 100%; border: none; cursor: pointer; margin-top: 20px;">
+                Finalizar Cadastro
+            </button>
+        </form>
+        
+        <a href="login.html" class="link-cadastro" style="display:block; text-align:center; margin-top:15px; color:#a0a0a0; text-decoration:none;">
+            Já tem conta? Fazer Login
+        </a>
+    </div>
+
+    <script src="../JS/processa_cadastro.js"></script>
+</body>
+</html>
