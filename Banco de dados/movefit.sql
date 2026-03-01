@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13/12/2025 às 22:59
+-- Tempo de geração: 01/03/2026 às 22:29
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -93,15 +93,17 @@ CREATE TABLE `usuarios` (
   `bairro` varchar(100) DEFAULT NULL,
   `cidade` varchar(100) DEFAULT NULL,
   `estado` varchar(2) DEFAULT NULL,
-  `data_cadastro` datetime DEFAULT current_timestamp()
+  `data_cadastro` datetime DEFAULT current_timestamp(),
+  `telefone` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nome`, `usuario`, `email`, `senha`, `cep`, `rua`, `numero`, `bairro`, `cidade`, `estado`, `data_cadastro`) VALUES
-(1, 'Emilly dos Santos ', 'Einhard', 'Emilly@gmail.com', '$2y$10$BJx3o0r0Vst9BbinL/ILBO9889th9j6qBt2ghXFx5N3aix.4FeFhW', '15722130', 'Rua José Fernandes Montoro', '4306', 'Primavera II', 'Palmeira D&#39;Oeste', 'SP', '2025-12-13 18:55:57');
+INSERT INTO `usuarios` (`id`, `nome`, `usuario`, `email`, `senha`, `cep`, `rua`, `numero`, `bairro`, `cidade`, `estado`, `data_cadastro`, `telefone`) VALUES
+(1, 'Emilly dos Santos ', 'Einhard', 'Emilly@gmail.com', '$2y$10$BJx3o0r0Vst9BbinL/ILBO9889th9j6qBt2ghXFx5N3aix.4FeFhW', '15722130', 'Rua José Fernandes Montoro', '4306', 'Primavera II', 'Palmeira D&#39;Oeste', 'SP', '2025-12-13 18:55:57', NULL),
+(2, 'math deus ', 'joelma gostosa', 'mathinho@hotmail.com', '$2y$10$ODooUHA7spFLJCnvLPoKKeg1EMCV92zlbzbQ1pFGxgJxkLuQiwGp6', '02124041', 'Rua Osaka', '635', 'Jardim Japão', 'São Paulo', 'SP', '2026-02-27 19:18:44', '11965166341');
 
 --
 -- Índices para tabelas despejadas
@@ -162,7 +164,7 @@ ALTER TABLE `produtos`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restrições para tabelas despejadas
