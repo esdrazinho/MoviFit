@@ -45,4 +45,6 @@ if (isset($_POST['acao']) && $_POST['acao'] == 'atualizar') {
     header("Location: ../PHP.front/ver_carrinho.php");
     exit;
 }
+
+// boa sorte com o projeto! Se precisar de mais ajuda, é só chamar!
 ?>
