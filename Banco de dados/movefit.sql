@@ -95,6 +95,7 @@ CREATE TABLE `usuarios` (
   `estado` varchar(2) DEFAULT NULL,
   `data_cadastro` datetime DEFAULT current_timestamp(),
   `telefone` varchar(20) DEFAULT NULL
+  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -123,6 +124,29 @@ ALTER TABLE `itens_pedido`
 ALTER TABLE `pedidos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `usuario_id` (`usuario_id`);
+
+CREATE TABLE 'pagamentos' (
+  'id' int(11) NOT NULL AUTO_INCREMENT,
+  'pedido_id' int(11) NOT NULL,
+  'metodo' enum('PIX', 'Cartao', 'boleto') NOT NULL,
+  'status' enum('Pendente', 'Aprovado', 'Recusado,' 'Cancelado') DEFAULT 'Pendente',
+  'valor' decimal(10,2) NOT NULL,
+  'codigo_transacao' varchar(255) DEFAULt NUll,
+  'data_pagaemento datetime' DEFAULT current_timestamp(),
+  PRIMARY KEY ('id'),
+  KEY 'pedido_id' ('pedido_id'),
+  CONSTRAINT 'pagamentos_ibfk_1'
+  FOREIGN KEY ('pedido_id') REFERENCES 'pedidos' 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/* Quando o pagamento for aprovado*/
+
+UPDATE pagamentos
+SET status = 'Aprovado'
+WHERE id = 1;
+
+ALTER TABLE pedidos
+ADD COLUMN pagamento_id INT NULL;
 
 --
 -- Índices de tabela `produtos`
@@ -187,3 +211,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
